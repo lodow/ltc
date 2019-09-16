@@ -19,5 +19,7 @@ RUN chown app:app -R /home/app/litecoin
 
 USER app
 
+EXPOSE 9332
+
 CMD ["/home/app/litecoin/bin/litecoind"]
 
