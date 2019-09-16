@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y wget gpg && \
 
 #  https://blog.litecoin.org/litecoin-core-v0-17-1-release-7cf1207ee833 
 # "For this release, the binaries have been signed with key identifier FE3348877809386C (thrasher’s key)"
-#RUN gpg --keyserver pgp.mit.edu --recv-key FE3348877809386C && \ 
-#    gpg --verify litecoin-0.17.1-x86_64-linux-signatures.asc && \
-RUN cat litecoin-0.17.1-linux-signatures.asc | grep  litecoin-0.17.1-x86_64-linux-gnu.tar.gz | sha256sum --check --status && \
+RUN gpg --keyserver pgp.mit.edu --recv-key FE3348877809386C && \ 
+    gpg --verify litecoin-0.17.1-linux-signatures.asc && \
+    cat litecoin-0.17.1-linux-signatures.asc | grep  litecoin-0.17.1-x86_64-linux-gnu.tar.gz | sha256sum --check --status && \
     tar xzf litecoin-0.17.1-x86_64-linux-gnu.tar.gz
    
 FROM ubuntu:18.04
